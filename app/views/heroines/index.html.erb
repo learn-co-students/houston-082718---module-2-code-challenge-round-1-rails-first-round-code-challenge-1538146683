@@ -1,9 +1,14 @@
 <h2>All Heroines</h2>
 
+<%= form_with url: heroines_path, method: :get do |f| %>
+  <h4>Filter by: <%= f.collection_select :power_id, @powers, :id, :name  %></h4>
+  <%= f.submit 'Filter' %>
+<% end %>
+
 <ul>
   <% @heroines.each do |heroine| %>
     <li>
-      <%= heroine.super_name %>
+      <%= link_to heroine.super_name, heroine_path(heroine) %>
     </li>
     <br>
   <% end %>
