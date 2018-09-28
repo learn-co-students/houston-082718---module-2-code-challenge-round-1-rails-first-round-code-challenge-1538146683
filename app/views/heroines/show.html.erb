@@ -1,0 +1,12 @@
+<h2 style="color: orange"><%= @heroine.super_name %></h2>
+
+<ul>
+    <li><strong>Name: </strong><%= @heroine.name %></li>
+    <li><strong>Power: </strong><%= link_to @heroine.power.name, power_path(@heroine.power.id) %></li>
+</ul>
+<br>
+<br>
+<%= form_tag heroine_path(@heroine.id), method: "delete" do %>
+  <%= submit_tag "Delete #{@heroine.super_name}" %>
+<% end %>
+<h3 style="color: #333300">Edit <%= link_to @heroine.super_name, edit_heroine_path(@heroine)%> OR <%= link_to "Go Back To All Heroines", heroines_path %></h3>

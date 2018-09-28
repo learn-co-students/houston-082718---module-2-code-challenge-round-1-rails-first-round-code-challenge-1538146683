@@ -1,0 +1,14 @@
+<h2 style="color: green"><%= @power.name.capitalize %></h2>
+
+<ul>
+    <li><strong>Description: </strong><%= @power.description %></li>
+    <li><strong>Heroines with <%= @power.name.capitalize %>:</strong></li>
+    <% Heroine.all.select do |h| %>
+      <% if h.power_id == @power.id %>
+        <p><%= link_to h.name, heroine_path(h) %><p>
+        <% end %>
+    <% end %>
+
+</ul>
+<br>
+<h4 style="color: orange"><%= link_to "See All Powers", powers_path %> OR <%= link_to "Go Back To Heroines", heroines_path %></h4>

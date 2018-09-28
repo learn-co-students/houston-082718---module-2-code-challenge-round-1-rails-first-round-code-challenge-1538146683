@@ -1,0 +1,23 @@
+<h3 style="color: #467589">Create A New Heroine!</h3>
+
+<% if flash[:errors] %>
+  <% flash[:errors].each do |m| %>
+    <h3 style="color: red; font-style: oblique"><%= m %></h3>
+  <% end %>
+<% end %>
+
+<%= form_with model: @heroine do |f| %>
+  <strong><%= f.label :name %></strong>
+  <%= f.text_field :name %>
+  <br>
+  <br>
+  <strong><%= f.label :super_name %></strong>
+  <%= f.text_field :super_name %>
+  <br>
+  <br>
+  <strong><%= f.label :power %></strong>
+  <%= f.collection_select :power_id, Power.all, :id, :name %>
+  <br>
+  <br>
+  <%= f.submit %>
+<% end %>

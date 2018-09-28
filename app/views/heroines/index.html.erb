@@ -1,10 +1,20 @@
-<h2>All Heroines</h2>
+<h2 style="color: burlywood">All Heroines</h2>
 
+<%= form_tag(powers_path, method: :get) do %>
+  <h3>Search By Super Power:</h3>
+  <%= text_field_tag :power %>
+  <%= submit_tag 'Search' %>
+<% end %>
+<br>
+<br>
+<br>
 <ul>
   <% @heroines.each do |heroine| %>
     <li>
-      <%= heroine.super_name %>
+      <%= link_to heroine.super_name, heroine_path(heroine) %>
     </li>
     <br>
   <% end %>
 </ul>
+
+<h3 style="color: #990076">Want To Add A Heroine? <%= link_to "Click Here!", new_heroine_path %></h3>
