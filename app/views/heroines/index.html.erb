@@ -5,16 +5,21 @@
   <%= submit_tag("Search") %>
 <% end %>
 
-<% if @power %>
-  <h1>List of All Heroines with power:</h1>
-  <%= @power.name %>
+  <h1>List of All Heroines with power '<%= @power_search.name %>':</h1>
+<% unless @power_search == nil %>
+  <% @power_search.heroines.each do |heroine| %>
+        <li><%=link_to heroine.name, heroine_path(heroine) %></li>
+  <% end %>
 <% end %>
 
+
 <ul>
+  <% unless @heroines.nil? %>
   <% @heroines.each do |heroine| %>
     <li>
       <%= link_to heroine.super_name, heroine_path(heroine) %>
     </li>
     <br>
+  <% end %>
   <% end %>
 </ul>

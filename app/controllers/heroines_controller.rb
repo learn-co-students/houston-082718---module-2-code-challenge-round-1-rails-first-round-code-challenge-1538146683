@@ -26,8 +26,8 @@ class HeroinesController < ApplicationController
 	end
 
 	def search
-		# @power = Power.all.select {|p| p(params[:q])
-		# redirect_to heroines_path
+		@power_search = Power.find_by_name(params[:q])
+		render :index
 	end
 
 	private
