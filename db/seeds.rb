@@ -29,8 +29,6 @@ heroines = [
 # uncomment the following method to associate heroine with a power!
 # Just uncomment line 33 and run `rake db:seed` again in your terminal.
 # (******Note****** If you try to do this before you set up proper associations, it will error.)
-# ---------------
 heroines = heroines.map { |heroine| heroine.merge( { power_id: Power.all.sample.id } ) }
-# ---------------
 
 heroines.each { |heroine| Heroine.create(heroine) }

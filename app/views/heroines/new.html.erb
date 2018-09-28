@@ -1,0 +1,9 @@
+<h3>New Power Form</h3>
+ <%= form_with model: @heroine do |f| %>
+    <label>Name:</label><br>
+    <%= f.text_field :name %><br>
+    <label>Super Name:</label><br>
+    <%= f.text_field :Super_name %><br>
+    <label>Power:</label><br>
+    <%= f.text_field :power %><br>
+<% end %>
