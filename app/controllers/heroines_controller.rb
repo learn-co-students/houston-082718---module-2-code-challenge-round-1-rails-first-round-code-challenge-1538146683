@@ -1,5 +1,42 @@
 class HeroinesController < ApplicationController
-  def index
-    @heroines = Heroine.all
-  end
+	before_action :set_heroine, only: [:show]
+
+	def index
+		@heroines = Heroine.all
+	end
+
+	def show
+	end
+
+	def new
+		@heroine = Heroine.new
+	end
+
+	def create
+		@new_heroine = Heroine.new(heroine_params)
+		redirect_to new_heroine
+		if new_heroine.valid?
+			'Yay! It is valid'
+			new_heroine.save
+			redirect_to heroine_path(@new_heroine)
+		else
+			flash[:errors] = new_heroine.errors.full_messages
+			redirect_to new_heroine_path
+		end
+	end
+
+	def search
+		# @power = Power.all.select {|p| p(params[:q])
+		# redirect_to heroines_path
+	end
+
+	private
+
+	def set_heroine
+		@heroine = Heroine.find(params[:id])
+	end
+
+	def heroine_params
+		params.require(:heroine).permit(:name, :super_name, :power_id)
+	end
 end
