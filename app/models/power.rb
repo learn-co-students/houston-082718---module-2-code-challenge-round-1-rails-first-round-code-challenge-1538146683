@@ -1,3 +1,3 @@
 class Power < ApplicationRecord
-  has_many :Heroine
+  has_many :heroines
 end

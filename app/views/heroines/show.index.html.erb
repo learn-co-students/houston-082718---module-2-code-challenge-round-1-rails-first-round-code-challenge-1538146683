@@ -1,4 +1,4 @@
 <h1><%= @heroine.name %></h1>
 <h3>Super Name: <%= @heroine.super_name %></h3>
-<h3>Power: <%= @heroine.power %></h3>
+<h3>Power: <a href="/powers/<%= @heroine.power.id %>"><%= @heroine.power %></a></h3>
 <% end %>

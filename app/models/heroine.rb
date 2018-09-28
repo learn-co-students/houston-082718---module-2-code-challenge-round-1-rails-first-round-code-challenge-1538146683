@@ -1,3 +1,3 @@
 class Heroine < ApplicationRecord
-  belongs_to :Power 
+  belongs_to :power 
 end
