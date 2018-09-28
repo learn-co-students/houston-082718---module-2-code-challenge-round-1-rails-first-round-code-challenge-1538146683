@@ -3,7 +3,7 @@
 <ul>
   <% @heroines.each do |heroine| %>
     <li>
-      <%= heroine.super_name %>
+      <p><a href="/heroines/<%= heroine.id %>"><%= heroine.super_name %></a></p>    
     </li>
     <br>
   <% end %>
