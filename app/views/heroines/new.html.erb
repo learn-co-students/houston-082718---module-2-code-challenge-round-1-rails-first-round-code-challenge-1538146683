@@ -1,9 +1,11 @@
-<% if flash[:error] %>
+<h1>Create New Heroine</h1>
+
+<% if flash[:errors] %>
   <% flash[:errors].each do |msg| %>
     <p>* <%= msg %></p>
   <% end %>
 <% end %>
-<h1>Create New Heroine</h1>
+
 <%= form_with model: @heroine do |form| %>
   <p>Name: <%= form.text_field :name %></p>
   <p>Super name: <%= form.text_field :super_name %></p>

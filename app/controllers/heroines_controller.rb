@@ -13,12 +13,9 @@ class HeroinesController < ApplicationController
 	end
 
 	def create
-		@new_heroine = Heroine.new(heroine_params)
-		redirect_to new_heroine
-		if new_heroine.valid?
-			'Yay! It is valid'
-			new_heroine.save
-			redirect_to heroine_path(@new_heroine)
+		new_heroine = Heroine.new(heroine_params)
+		if new_heroine.save
+			redirect_to heroine_path(new_heroine)
 		else
 			flash[:errors] = new_heroine.errors.full_messages
 			redirect_to new_heroine_path
