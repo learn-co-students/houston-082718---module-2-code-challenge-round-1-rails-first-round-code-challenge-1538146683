@@ -1,10 +1,4 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-<h1> All Heroines</h1>
-<ul>
-  <% @heroines.each do |heroine| %>
-    <li>
-      <a href= '/heroines/<%=heroine.id%>'><%= heroine.super_name %></a>
-    </li>
-    <br>
-  <% end %>
-</ul>
+<h1><%=@heroine.name%></h1>
+<h2>Super Name: <%=@heroine.super_name%></h2>
+<h2>Power: <a href= '/powers/<%=@heroine.power.id%>'><%=@heroine.power.name%></a></h2>
