@@ -1,0 +1,11 @@
+<%= form_with model: @heroine do |f| %>
+    <%= f.text_field :name, placeholder: 'Name' %><br>
+    <%= f.text_field :super_name, placeholder: 'Super Name' %><br>
+    <%= f.collection_select :power_id, Power.all, :id, :name %><br>
+    <%= f.submit %>
+<% end %>
+<% if flash[:errors] %>
+        <% flash[:errors].each do |mess| %>
+            <ul><%= mess %></ul>
+        <% end %>
+<% end %>
