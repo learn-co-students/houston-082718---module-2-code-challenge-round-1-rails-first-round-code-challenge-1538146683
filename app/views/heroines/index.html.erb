@@ -1,9 +1,10 @@
 <h2 style="color: burlywood">All Heroines</h2>
 
-<%= form_tag(powers_path, method: :get) do %>
+<%= form_tag heroines_path, method: :get do %>
   <h3>Search By Super Power:</h3>
   <%= text_field_tag :power %>
   <%= submit_tag 'Search' %>
+  
 <% end %>
 <br>
 <br>

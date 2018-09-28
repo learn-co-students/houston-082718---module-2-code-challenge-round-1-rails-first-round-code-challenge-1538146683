@@ -1,11 +1,13 @@
 class HeroinesController < ApplicationController
   def index
+    if params[:power]
+      @heroines = Heroine.select { |heroine|
+        heroine.power.name.downcase.include?(params[:power].downcase)
+      }
+  else
     @heroines = Heroine.all
-    @powers = if params[:power]
-    Power.where('name LIKE ?', "%#{params[:power]}%")
- else
-    Power.all
- end
+  end
+
   end
 
   def show
