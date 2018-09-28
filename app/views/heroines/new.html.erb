@@ -1,0 +1,13 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<h1>New Heroines Form </h1>
+<% if @heroine.errors.full_messages %>
+<% @heroine.errors.full_messages.each do |m| %>
+   <p><%=m%></p>
+<%end%>
+<%end%>
+<%= form_with model: @heroine do |f| %>
+<%= f.text_field :name, placeholder:'Name'%>
+<%= f.text_field :super_name, placeholder:'Super Name'%>
+<%= f.collection_select :power_id, Power.all, :id, :name%>
+<%=f.submit%>
+<%end %>
