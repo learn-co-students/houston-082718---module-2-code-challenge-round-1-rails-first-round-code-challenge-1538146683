@@ -1,10 +1,25 @@
 <h2>All Heroines</h2>
+<%= form_tag("/search", method: "get") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
 
+<% unless @power_search == nil %>
+  <h1>List of All Heroines with power '<%= @power_search.name%>':</h1>
+  <% @power_search.heroines.each do |heroine| %>
+        <li><%=link_to heroine.name, heroine_path(heroine) %></li>
+  <% end %>
+<% end %>
+
+<h3><%= link_to 'Create New Heroine', new_heroine_path %></h3>
 <ul>
+  <% unless @heroines.nil? %>
   <% @heroines.each do |heroine| %>
     <li>
-      <%= heroine.super_name %>
+      <%= link_to heroine.super_name, heroine_path(heroine) %>
     </li>
     <br>
+  <% end %>
   <% end %>
 </ul>
